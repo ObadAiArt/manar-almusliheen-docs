@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>منار المصلحين — التوثيق</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -19,227 +18,98 @@
     --ink-soft: #3f5560;
     --line: #d9d0bd;
     --card: #fffdf8;
-    box-sizing: border-box;
-    padding-top: env(safe-area-inset-top, 0px);
-    padding-bottom: env(safe-area-inset-bottom, 0px);
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --paper: #0d1b21;
-      --paper-deep: #0a1418;
-      --ink: #e9e4d8;
-      --ink-soft: #a9b9bf;
-      --line: #24393f;
-      --card: #112832;
-    }
-  }
-  :root[data-theme="dark"] {
-    --paper: #0d1b21;
-    --paper-deep: #0a1418;
-    --ink: #e9e4d8;
-    --ink-soft: #a9b9bf;
-    --line: #24393f;
-    --card: #112832;
   }
   * { box-sizing: border-box; }
-  html { scroll-padding-top: env(safe-area-inset-top, 0px); scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; }
   body {
     margin: 0;
     background: var(--paper);
     color: var(--ink);
-    font-family: 'IBM Plex Sans Arabic', 'Segoe UI', Tahoma, sans-serif;
+    font-family: 'IBM Plex Sans Arabic', Arial, Tahoma, sans-serif;
     line-height: 1.85;
     font-size: 17px;
   }
-  h1, h2, h3, .display {
+  h1, h2, h3 {
     font-family: 'Amiri', 'IBM Plex Sans Arabic', serif;
     font-weight: 700;
     color: var(--navy);
     line-height: 1.35;
   }
-  :root[data-theme="dark"] h1, :root[data-theme="dark"] h2, :root[data-theme="dark"] h3 {
-    color: #f0e9d8;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) h1,
-    :root:not([data-theme="light"]) h2,
-    :root:not([data-theme="light"]) h3 { color: #f0e9d8; }
-  }
-
-  a { color: var(--teal); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a { color: var(--teal); }
   a:hover { color: var(--amber-deep); }
-
   .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
-
-  /* ── Hero ─────────────────────────────────────────────────────────── */
   header.hero {
-    background:
-      radial-gradient(1200px 480px at 15% -10%, rgba(15,81,110,.18), transparent 60%),
-      linear-gradient(180deg, var(--navy) 0%, var(--teal) 130%);
+    background: linear-gradient(180deg, var(--navy) 0%, var(--teal) 130%);
     color: #f4f1e6;
-    padding: 64px 0 72px;
-    position: relative;
-    overflow: hidden;
+    padding: 56px 0 64px;
   }
-  header.hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(circle, rgba(246,243,236,.12) 1px, transparent 1px);
-    background-size: 22px 22px;
-    opacity: .35;
-    pointer-events: none;
-  }
-  .hero-inner {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 22px;
-  }
+  .hero-inner { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px; }
   .logo-badge {
-    width: 108px; height: 108px;
+    width: 96px; height: 96px;
     background: #f6f3ec;
-    border-radius: 28px;
+    border-radius: 24px;
     display: flex; align-items: center; justify-content: center;
-    padding: 16px;
-    box-shadow: 0 18px 40px -14px rgba(0,0,0,.5);
+    padding: 14px;
+    box-shadow: 0 14px 32px -12px rgba(0,0,0,.5);
   }
-  .logo-badge svg, .logo-badge img { width: 100%; height: 100%; display: block; }
-  header.hero h1 {
-    color: #fbf9f2;
-    font-size: clamp(28px, 5vw, 38px);
-    margin: 0;
-  }
-  .hero-tag {
-    color: #cfe2ea;
-    font-size: 17px;
-    max-width: 46ch;
-    margin: 0;
-  }
-  .hero-meta {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 6px;
-  }
-  .pill {
-    border: 1px solid rgba(246,243,236,.35);
-    color: #f4f1e6;
-    padding: 6px 16px;
-    border-radius: 999px;
-    font-size: 14px;
-  }
-
-  /* ── Nav / TOC ────────────────────────────────────────────────────── */
-  nav.toc {
-    background: var(--paper-deep);
-    border-bottom: 1px solid var(--line);
-  }
-  nav.toc ul {
-    list-style: none;
-    display: flex;
-    gap: 4px;
-    margin: 0;
-    padding: 0;
-    overflow-x: auto;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  nav.toc ul::-webkit-scrollbar { display: none; }
+  .logo-badge svg { width: 100%; height: 100%; display: block; }
+  header.hero h1 { color: #fbf9f2; font-size: 30px; margin: 0; }
+  .hero-sub { color: #cfe2ea; font-size: 15px; margin: 0; }
+  .hero-tag { color: #e9e4d8; font-size: 16.5px; max-width: 48ch; margin: 0; }
+  nav.toc { background: var(--paper-deep); border-bottom: 1px solid var(--line); }
+  nav.toc .wrap { display: flex; gap: 4px; flex-wrap: wrap; }
   nav.toc a {
-    display: block;
-    white-space: nowrap;
-    padding: 14px 16px;
-    color: var(--ink-soft);
-    font-size: 14.5px;
-    font-weight: 600;
-    text-decoration: none;
-    border-bottom: 2px solid transparent;
+    display: block; padding: 12px 14px; color: var(--ink-soft);
+    font-size: 14px; font-weight: 600; text-decoration: none;
   }
-  nav.toc a:hover { color: var(--navy); border-bottom-color: var(--amber); }
-  :root[data-theme="dark"] nav.toc a:hover,
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) nav.toc a:hover { color: #f0e9d8; }
-  }
-
-  /* ── Sections ─────────────────────────────────────────────────────── */
-  main { padding: 56px 0 40px; }
-  section { margin-bottom: 58px; scroll-margin-top: 56px; }
-  section + section { padding-top: 4px; }
-
+  nav.toc a:hover { color: var(--navy); }
+  main { padding: 48px 0 40px; }
+  section { margin-bottom: 48px; }
   .section-head {
-    display: flex;
-    align-items: baseline;
-    gap: 14px;
-    margin-bottom: 18px;
     border-inline-start: 4px solid var(--amber);
-    padding-inline-start: 16px;
+    padding-inline-start: 14px;
+    margin-bottom: 16px;
   }
-  .section-head h2 { margin: 0; font-size: 25px; }
-  .section-head .num { color: var(--ink-soft); font-size: 14px; letter-spacing: .02em; }
-
-  p { margin: 0 0 16px; color: var(--ink); }
-  ul.plain, ol.plain { margin: 0 0 16px; padding-inline-start: 22px; }
-  ul.plain li, ol.plain li { margin-bottom: 9px; }
-
+  .section-head h2 { margin: 0; font-size: 22px; }
+  .lang-label {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    color: var(--amber-deep);
+    background: #f3e4cd;
+    padding: 2px 10px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  p { margin: 0 0 14px; }
+  ul.plain { margin: 0 0 14px; padding-inline-start: 20px; }
+  ul.plain li { margin-bottom: 8px; }
   .card {
     background: var(--card);
     border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 22px 24px;
-    margin-bottom: 16px;
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
   }
-  .card h3 { margin: 0 0 8px; font-size: 18px; }
-  .card p:last-child { margin-bottom: 0; }
-
-  table.data {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 4px 0 18px;
-    font-size: 15px;
-  }
+  .card h3 { margin: 0 0 8px; font-size: 17px; }
+  table.data { width: 100%; border-collapse: collapse; margin: 4px 0 16px; font-size: 14.5px; }
   table.data th, table.data td {
-    text-align: start;
-    padding: 11px 14px;
-    border-bottom: 1px solid var(--line);
-    vertical-align: top;
+    text-align: start; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top;
   }
-  table.data th {
-    color: var(--navy);
-    font-weight: 700;
-    font-size: 14px;
-  }
-  :root[data-theme="dark"] table.data th { color: #f0e9d8; }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) table.data th { color: #f0e9d8; }
-  }
-
+  table.data th { color: var(--navy); font-size: 13.5px; }
   .note {
     border-inline-start: 3px solid var(--teal);
     background: var(--paper-deep);
-    padding: 14px 18px;
-    border-radius: 0 10px 10px 0;
-    font-size: 15.5px;
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    font-size: 15px;
     color: var(--ink-soft);
   }
-
-  footer {
-    border-top: 1px solid var(--line);
-    padding: 28px 0 44px;
-    color: var(--ink-soft);
-    font-size: 14px;
-    text-align: center;
-  }
-
-  @media (max-width: 560px) {
-    body { font-size: 16px; }
-    header.hero { padding: 48px 0 56px; }
-    .logo-badge { width: 88px; height: 88px; }
-  }
+  footer { border-top: 1px solid var(--line); padding: 24px 0 36px; color: var(--ink-soft); font-size: 13.5px; text-align: center; }
 </style>
+<title>Manar Al-Musliheen | منار المصلحين</title>
+<meta name="description" content="Manar Al-Musliheen is an app for supervisors of Quran memorization and youth mentoring programs to track attendance, memorization, and generate reports. منار المصلحين تطبيق لمشرفي برامج تحفيظ القرآن والتربية لمتابعة الحضور والحفظ وإصدار التقارير.">
 </head>
 <body>
 
@@ -309,42 +179,69 @@
        transform="matrix(1.1179296,0,0,1.1179296,-15.601106,-19.305275)" /></g></svg>
 
     </div>
-    <h1>منار المصلحين</h1>
-    <p class="hero-tag">تطبيق لإدارة برامج التربية والحفظ داخل المساجد والمؤسسات التربوية — من متابعة أسبوعية للمجموعات إلى تقارير فصلية جاهزة للمشاركة.</p>
-    <div class="hero-meta">
-      <span class="pill">وثيقة رسمية</span>
-      <span class="pill">آخر تحديث: سبتمبر 2026</span>
-    </div>
+    <h1>Manar Al-Musliheen — منار المصلحين</h1>
+    <p class="hero-sub">A companion app for Quran-memorization and youth-mentoring program supervisors</p>
   </div>
 </header>
 
 <nav class="toc">
   <div class="wrap">
-    <ul>
-      <li><a href="#about">عن التطبيق</a></li>
-      <li><a href="#data">جمع البيانات</a></li>
-      <li><a href="#privacy">سياسة الخصوصية</a></li>
-      <li><a href="#contact">التواصل</a></li>
-    </ul>
+    <a href="#about-en">About (English)</a>
+    <a href="#about-ar">عن التطبيق (عربي)</a>
+    <a href="privacy.html">Privacy Policy</a>
   </div>
 </nav>
 
 <main class="wrap">
 
-  <section id="about">
-    <div class="section-head"><span class="num">01</span><h2>عن التطبيق</h2></div>
+  <section id="about-en">
+    <span class="lang-label">ENGLISH</span>
+    <div class="section-head"><h2>About Manar Al-Musliheen</h2></div>
     <p>
-      <strong>منار المصلحين</strong> تطبيق مخصّص للمشرفين والمشرفات على برامج التربية
-      والحفظ — مثل حِلَق تحفيظ القرآن، وبرامج الأشبال والفتيان داخل المساجد
-      والمؤسسات التربوية. يهدف إلى تبسيط العمل اليومي للمشرف، بدءًا من تسجيل
-      حضور الطلاب وتفاعلهم أسبوعيًا، مرورًا بمتابعة الحفظ والمراجعة والمقررات،
-      وانتهاءً بإصدار تقارير فصلية جاهزة لمشاركتها مع الإدارة أو أولياء الأمور.
+      <strong>Manar Al-Musliheen</strong> is a mobile application built for supervisors who run
+      Quran-memorization circles and youth-mentoring programs inside mosques and educational
+      institutions. It replaces paper logbooks and scattered spreadsheets with one simple tool.
     </p>
     <p>
-      يعمل التطبيق بالكامل على جهاز المستخدم، ويحفظ كل بياناته محليًا دون الحاجة
-      إلى اتصال دائم بالإنترنت. يمكن للمستخدم اختياريًا ربط حسابه في Google
-      لتصدير التقارير والملفات إلى Google Drive الخاص به، وهي الميزة الوحيدة
-      التي تتطلب اتصالًا بخدمة خارجية.
+      With Manar Al-Musliheen, a supervisor can organize their program into terms and student
+      groups, record weekly attendance and interaction, track each student's Quran memorization
+      and revision progress, and generate ready-to-share termly, behavioral, and psychological
+      performance reports for each student.
+    </p>
+    <div class="card">
+      <h3>What the app does</h3>
+      <ul class="plain">
+        <li>Organizes programs, terms, groups, and student records.</li>
+        <li>Weekly tracking: attendance, memorization &amp; revision, coursework, routine checklist items.</li>
+        <li>Termly, behavioral, and psychological performance reports per student.</li>
+        <li>Exports tables and reports as Excel and Word files, optionally saved to the supervisor's own Google Drive.</li>
+      </ul>
+    </div>
+    <p>
+      All program data is stored locally on the supervisor's own device. The only optional
+      connection to an external service is Google Drive, used solely — at the supervisor's own
+      request — to save exported report files into their own Drive storage.
+    </p>
+    <p>
+      Read the full <a href="privacy.html">Privacy Policy</a> for details on data collection and
+      use.
+    </p>
+  </section>
+
+  <section id="about-ar" dir="rtl">
+    <span class="lang-label">عربي</span>
+    <div class="section-head"><h2>عن تطبيق منار المصلحين</h2></div>
+    <p>
+      <strong>منار المصلحين</strong> تطبيق مخصّص للمشرفين والمشرفات على برامج التربية والحفظ —
+      مثل حِلَق تحفيظ القرآن، وبرامج الأشبال والفتيان داخل المساجد والمؤسسات التربوية. يهدف إلى
+      تبسيط العمل اليومي للمشرف، بدءًا من تسجيل حضور الطلاب وتفاعلهم أسبوعيًا، مرورًا بمتابعة
+      الحفظ والمراجعة والمقررات، وانتهاءً بإصدار تقارير فصلية جاهزة لمشاركتها مع الإدارة أو
+      أولياء الأمور.
+    </p>
+    <p>
+      يعمل التطبيق بالكامل على جهاز المستخدم، ويحفظ كل بياناته محليًا دون الحاجة إلى اتصال دائم
+      بالإنترنت. يمكن للمستخدم اختياريًا ربط حسابه في Google لتصدير التقارير والملفات إلى Google
+      Drive الخاص به، وهي الميزة الوحيدة التي تتطلب اتصالًا بخدمة خارجية.
     </p>
     <div class="card">
       <h3>أبرز ما يقدّمه التطبيق</h3>
@@ -355,133 +252,15 @@
         <li>تصدير الجداول والتقارير بصيغ Excel و Word، ومشاركتها أو رفعها إلى Drive.</li>
       </ul>
     </div>
-  </section>
-
-  <section id="data">
-    <div class="section-head"><span class="num">02</span><h2>جمع البيانات واستخدامها</h2></div>
     <p>
-      يجمع التطبيق فقط البيانات التي يُدخلها المشرف بنفسه عن برنامجه ومجموعاته
-      وطلابه، من أجل تشغيل ميزاته. لا يوجد تسجيل تلقائي أو خفي لأي بيانات، ولا
-      يُشارك التطبيق أي بيانات مع طرف ثالث لأغراض إعلانية أو تسويقية.
+      لمزيد من التفاصيل حول جمع البيانات واستخدامها، راجع
+      <a href="privacy.html">سياسة الخصوصية الكاملة</a>.
     </p>
-
-    <table class="data">
-      <thead>
-        <tr><th>الفئة</th><th>أمثلة على البيانات</th><th>الغرض منها</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>بيانات الطالب</td>
-          <td>الاسم، سنة الميلاد، رقم هاتف ولي الأمر والطالب، السكن، الصف الدراسي، ملاحظات ثابتة</td>
-          <td>تعريف الطالب وربطه بسجلاته الأسبوعية والفصلية</td>
-        </tr>
-        <tr>
-          <td>المتابعة الأسبوعية</td>
-          <td>الحضور، درجات الحفظ والمراجعة، إنجاز المقررات، إنجاز الفقرات الثابتة</td>
-          <td>بناء تقارير الأداء وجداول المتابعة</td>
-        </tr>
-        <tr>
-          <td>التقييم الفصلي والنفسي</td>
-          <td>خطط الإنجاز الفردية، السمات السلوكية والنفسية، ملاحظات المشرف</td>
-          <td>إصدار التقرير الفصلي وتقرير الأداء السلوكي والنفسي</td>
-        </tr>
-        <tr>
-          <td>بيانات المشرف</td>
-          <td>اسم المستخدم داخل التطبيق</td>
-          <td>عرض اسم المشرف في الواجهة والتقارير المصدَّرة</td>
-        </tr>
-        <tr>
-          <td>حساب Google (اختياري)</td>
-          <td>البريد الإلكتروني، صلاحية الوصول إلى Google Drive</td>
-          <td>رفع الملفات المصدَّرة إلى مساحة Drive الخاصة بالمستخدم فقط، بطلب صريح منه</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="note">
-      كل هذه البيانات تُخزَّن في قاعدة بيانات محلية على جهاز المستخدم. لا يملك
-      التطبيق خادمًا مركزيًا يجمع بيانات المستخدمين، ولا تُرسَل أي بيانات إلى
-      أي جهة إلا عند استخدام المستخدم نفسه لميزة التصدير إلى Google Drive.
-    </div>
-  </section>
-
-  <section id="privacy">
-    <div class="section-head"><span class="num">03</span><h2>سياسة الخصوصية</h2></div>
-
-    <div class="card">
-      <h3>١. التخزين المحلي</h3>
-      <p>
-        جميع بيانات البرامج والفصول والمجموعات والطلاب والتقارير تُخزَّن في
-        قاعدة بيانات على جهاز المستخدم نفسه. لا تُرفع هذه البيانات تلقائيًا إلى
-        أي خادم، ولا يطّلع عليها فريق تطوير التطبيق أو أي طرف آخر.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>٢. الاتصال بـ Google Drive</h3>
-      <p>
-        عند اختيار المستخدم تصدير تقرير أو جدول ومشاركته عبر Google Drive،
-        يطلب التطبيق تسجيل الدخول بحساب Google الخاص بالمستخدم عبر بروتوكول
-        تسجيل الدخول الرسمي من Google، ويستخدم الصلاحية الممنوحة فقط لحفظ الملف
-        المصدَّر في مساحة تخزين ذلك الحساب. لا يطّلع التطبيق على أي ملفات أخرى
-        في حساب المستخدم، ولا يحتفظ بكلمة المرور في أي وقت.
-      </p>
-      <p>يمكن للمستخدم إلغاء ربط الحساب في أي وقت من إعدادات التطبيق أو من إعدادات حسابه في Google مباشرة.</p>
-    </div>
-
-    <div class="card">
-      <h3>٣. مشاركة البيانات مع أطراف ثالثة</h3>
-      <p>
-        لا يبيع التطبيق ولا يشارك بيانات المستخدمين أو الطلاب مع أي طرف ثالث
-        لأغراض إعلانية أو تجارية. الاستثناء الوحيد هو الملفات التي يختار
-        المستخدم بنفسه تصديرها ومشاركتها (مثل تقرير Word أو جدول Excel)، وهي
-        عملية يقوم بها المستخدم بإرادته الكاملة ولغرض يحدده هو.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>٤. بيانات القاصرين (الطلاب)</h3>
-      <p>
-        يتعامل التطبيق مع بيانات طلاب قد يكونون قاصرين. هذه البيانات يُدخلها
-        المشرف المسؤول تربويًا عنهم ضمن نطاق عمله في المؤسسة أو البرنامج
-        التربوي، وتبقى مخزَّنة محليًا على جهاز ذلك المشرف فقط، ولا تُستخدم إلا
-        لأغراض المتابعة التربوية والتقارير الخاصة بالبرنامج.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>٥. حذف البيانات</h3>
-      <p>
-        يمكن للمستخدم حذف أي طالب أو مجموعة أو برنامج من داخل التطبيق في أي
-        وقت، كما يؤدي حذف التطبيق من الجهاز إلى حذف قاعدة البيانات المحلية
-        بالكامل. الملفات التي صُدِّرت سابقًا إلى Google Drive تبقى خاضعة
-        لإعدادات ذلك الحساب، ويمكن حذفها من هناك مباشرة.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>٦. التعديلات على هذه السياسة</h3>
-      <p>
-        قد تُحدَّث هذه السياسة من وقت لآخر لمواكبة تطور التطبيق. سيُشار إلى
-        تاريخ آخر تحديث أعلى الصفحة، وننصح بمراجعتها بشكل دوري.
-      </p>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="section-head"><span class="num">04</span><h2>التواصل</h2></div>
-    <p>
-      لأي استفسار حول التطبيق أو هذه السياسة، أو لطلب حذف بياناتك، يمكن
-      التواصل عبر البريد الإلكتروني التالي:
-    </p>
-    <p style="font-size:19px;"><strong>abdulmouinalnasser@gmail.com</strong></p>
   </section>
 
 </main>
 
-<footer>
-  © 2026 منار المصلحين — جميع الحقوق محفوظة
-</footer>
+<footer>© 2026 Manar Al-Musliheen — منار المصلحين</footer>
 
 </body>
 </html>
